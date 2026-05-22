@@ -3,7 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { mergeConfig } from 'vite';
 
-const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
+const currentDir = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
 
 const config: StorybookConfig = {
   "stories": [
@@ -22,7 +22,7 @@ const config: StorybookConfig = {
     mergeConfig(config, {
       resolve: {
         alias: {
-          ui: path.resolve(dirname, '../src/ui/index.ts'),
+          ui: path.resolve(currentDir, '../src/ui/index.ts'),
         },
       },
     }),

@@ -18,9 +18,11 @@ export default defineConfig({
     },
   },
   build: {
+    copyPublicDir: false,
     lib: {
       entry: path.resolve(currentDir, 'src/ui/index.ts'),
       formats: ['es', 'cjs'],
+      cssFileName: 'style',
       fileName: (format) => format === 'es' ? 'index.js' : 'index.cjs',
     },
     rollupOptions: {

@@ -21,11 +21,11 @@ export const Button = ({
   label,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  const mode = primary ? 'dx-ui-button--primary' : 'dx-ui-button--secondary';
   return (
     <button
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+      className={['dx-ui-button', `dx-ui-button--${size}`, mode].join(' ')}
       style={{ backgroundColor }}
       {...props}
     >

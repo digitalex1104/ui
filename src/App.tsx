@@ -3,12 +3,22 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.scss'
+import { Button, Heading } from 'ui'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+      <section>
+        <Heading level={1}>Heading 1</Heading>
+        <Button onClick={() => setCount((count) => count + 1)}>
+          {`${count}x clicked`}
+        </Button>
+       
+        
+
+      </section>
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />

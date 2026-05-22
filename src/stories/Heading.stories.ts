@@ -14,10 +14,11 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
+    children: { control: 'text' },
     level: { control: 'select', options: [1, 2, 3, 4, 5, 6] },
   },
-  
-  args: {  },
+
+  args: { children: 'Heading' },
 } satisfies Meta<typeof Heading>;
 
 export default meta;
@@ -26,42 +27,42 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Level1: Story = {
   args: {
-    label: 'Heading',
+    children: 'Heading',
     level: 1,
   },
 };
 
 export const Level2: Story = {
   args: {
-    label: 'Heading',
+    children: 'Heading',
     level: 2,
   },
 };
 
 export const Level3: Story = {
   args: {
-    label: 'Heading',
+    children: 'Heading',
     level: 3,
   },
 };
 
 export const Level4: Story = {
   args: {
-    label: 'Heading',
+    children: 'Heading',
     level: 4,
   },
 };
 
 export const Level5: Story = {
   args: {
-    label: 'Heading',
+    children: 'Heading',
     level: 5,
   },
 };
 
 export const Level6: Story = {
   args: {
-    label: 'Heading',
+    children: 'Heading',
     level: 6,
   },
 };

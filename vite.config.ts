@@ -17,6 +17,16 @@ export default defineConfig({
       ui: path.resolve(currentDir, 'src/ui/index.ts'),
     },
   },
+  build: {
+    lib: {
+      entry: path.resolve(currentDir, 'src/ui/index.ts'),
+      formats: ['es', 'cjs'],
+      fileName: (format) => format === 'es' ? 'index.js' : 'index.cjs',
+    },
+    rollupOptions: {
+      external: ['react', 'react-dom', 'react/jsx-runtime'],
+    },
+  },
   test: {
     projects: [{
       extends: true,

@@ -1,0 +1,15 @@
+@mixin apply-color-set($name, $target) {
+  #{$target}: var(--color-#{$name}-default);
+
+  &:hover {
+    #{$target}: var(--color-#{$name}-hover);
+  }
+
+  &:active {
+    #{$target}: var(--color-#{$name}-active);
+  }
+
+  &:disabled {
+    #{$target}: var(--color-#{$name}-disabled);
+  }
+}

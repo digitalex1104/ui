@@ -1,30 +1,42 @@
+
+@use './scss/color-set' as *;
+
 .dx-ui-button {
   display: inline-block;
   cursor: pointer;
   border: 0;
-  border-radius: 3em;
+  border-radius: var(--border-radius-default);
   font-weight: 700;
   line-height: 1;
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  &--primary {
-    background-color: #555ab9;
+  &:focus{
+    outline-offset: 2px;
+    outline-width: 2px;
+    outline-style: solid;
+    outline-color: var(--color-accent-default);
+  }
+  &--primary {   
+    @include apply-color-set('accent', 'background-color');
     color: white;
+    
   }
   &--secondary {
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
-    background-color: transparent;
-    color: #333;      
-  }
+    @include apply-color-set('accent', 'color' );
+    @include apply-color-set('accent', 'border-color' );
+    @include apply-color-set('default', 'background-color');
+    border-width: 2px;
+    border-style: solid;
+    background-color: white;
+  } 
   &--small {
-    padding: 10px 16px;
+    padding: 6px 12px;
     font-size: 12px;
   }
-  &--medium {
-    padding: 11px 20px;
-    font-size: 14px;
-  }
   &--large {
-    padding: 12px 24px;
+    padding: 10px 20px;
     font-size: 16px;
-  }  
+  }
+  &:disabled {
+    cursor: default;
+  }
 }

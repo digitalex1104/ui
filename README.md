@@ -35,6 +35,20 @@ This outputs publishable artifacts into `dist/`:
 - `index.d.ts`
 - `style.css`
 
+## Create new version
+
+```bash
+npm version patch
+```
+
+```bash
+npm version minor
+```
+
+```bash
+npm version major
+```
+
 ## Publish to npm
 
 ```bash

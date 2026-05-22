@@ -1,0 +1,57 @@
+@use 'sass:color';
+
+@mixin create-color-set($name, $color, $hover-step: -5%, $active-step: -10%) {
+    --color-#{$name}-default: #{$color};
+    --color-#{$name}-hover: #{color.adjust($color, $lightness: $hover-step)};
+    --color-#{$name}-active: #{color.adjust($color, $lightness: $active-step)};
+    --color-#{$name}-disabled: #{color.grayscale($color)};
+}
+
+:root {
+  /* Typography */
+  --font-family-default: Roboto, sans-serif;
+  --font-weight-default: 400;
+  --font-size-default: 20px;
+
+  --font-family-heading: Roboto, sans-serif;
+  --font-weight-heading: 700;
+
+
+
+
+  /* Colors */
+  @include create-color-set('default', white);
+  //@include create-color-set('primary', whitesmoke);
+  @include create-color-set('accent', #1e7fcb);
+  //@include create-color-set('accent-secondary', #b1ddff);
+  //@include create-color-set('disabled', gray);
+
+  /* Styles */
+  --border-radius-default: 6px;
+
+
+
+
+
+
+  /* Brand 
+  --dx-color-brand-500: #000000;
+  --dx-color-brand-600: #111111;
+*/
+  /* Neutral 
+  --dx-color-white: #ffffff;
+  --dx-color-black: #000000;
+  --dx-color-gray-700: #333333;
+*/
+  /* Component tokens: Button
+  --dx-button-primary-bg: var(--dx-color-brand-500);
+  --dx-button-primary-fg: var(--dx-color-white);
+  --dx-button-secondary-bg: var(--dx-color-white);
+  --dx-button-secondary-fg: var(--dx-color-black);
+  --dx-button-secondary-border: rgba(0, 0, 0, 0.15);
+ */
+  /* Component tokens: Header 
+  --dx-header-border: rgba(0, 0, 0, 0.1);
+  --dx-header-text-muted: var(--dx-color-gray-700);
+  */
+}

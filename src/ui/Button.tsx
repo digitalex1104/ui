@@ -1,34 +1,30 @@
 import './button.scss';
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import type { ButtonHTMLAttributes } from 'react';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Is this the principal call to action on the page? */
-  primary?: boolean;
-  /** What background color to use */
-  backgroundColor?: string;
+  secondary?: boolean;
   /** How large should the button be? */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'large' | 'small' ;
   /** Button contents */
-  children: ReactNode;
+  //children: ReactNode | string | undefined;
 }
 
 /** Primary UI component for user interaction */
 export const Button = ({
-  primary = false,
-  size = 'medium',
-  backgroundColor,
-  children,
+  secondary = false,
+  size = 'large',
+  children = 'Button',
   className,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? 'dx-ui-button--primary' : 'dx-ui-button--secondary';
+  const mode = secondary ? 'dx-ui-button--secondary' : 'dx-ui-button--primary';
   return (
     <button
       type="button"
       className={['dx-ui-button', `dx-ui-button--${size}`, mode, className]
         .filter(Boolean)
         .join(' ')}
-      style={{ backgroundColor }}
       {...props}
     >
       {children}

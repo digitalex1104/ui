@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { fn } from 'storybook/test';
+//import { fn } from 'storybook/test';
 
 import { Button } from 'ui';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'Example/Button',
+  title: 'Components/Button',
   component: Button,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
@@ -32,7 +32,13 @@ export const Default: Story = {};
 
 export const Secondary: Story = {
   args: {
-    secondary: true,
+    variant: "secondary",
+  },
+};
+
+export const Tertiary: Story = {
+  args: {
+    variant: "tertiary",
   },
 };
 
@@ -42,18 +48,35 @@ export const Small: Story = {
   },
 };
 
+export const Medium: Story = {
+  args: {
+    size: 'medium',
+  },
+};
+
+export const Large: Story = {
+  args: {
+    size: 'large',
+  },
+};
+
 export const Disabled: Story = {
   args: {
     disabled: true,
-    onClick: () => alert('Button clicked'),
   },
 };
 
 export const DisabledSecondary: Story = {
   args: {
     disabled: true,
-    secondary: true,  
-    onClick: () => alert('Button clicked'),
+    variant: 'secondary',  
+  },
+};
+
+export const DisabledTertiary: Story = {
+  args: {
+    disabled: true,
+    variant: 'tertiary', 
   },
 };
 

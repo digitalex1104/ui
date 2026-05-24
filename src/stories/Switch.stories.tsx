@@ -5,7 +5,7 @@ import { Switch } from 'ui';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'Example/Switch',
+  title: 'Components/Switch',
   component: Switch,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
@@ -29,11 +29,32 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {};
 
+/*
 export const Active: Story = {
   args: {
     checked: true,
   },
 };
+*/
+
+/*
+export const Size: Story = {
+  args: {
+    
+  },
+   render: function Render(args) {
+    return (
+      <div style={{ display: 'grid', gap: '16px' }}>
+        <Switch {...args} size="small">small</Switch>
+        <Switch {...args} size="medium">medium</Switch>
+        <Switch {...args} size="large">large</Switch>
+   
+        <Switch {...args} size="large"><span style={{fontSize: "32px"}}>large</span></Switch>
+      </div>
+    );
+  },
+};
+*/
 
 export const Small: Story = {
   args: {

@@ -4,7 +4,7 @@
     --color-#{$name}-default: #{$color};
     --color-#{$name}-hover: #{color.adjust($color, $lightness: $hover-step)};
     --color-#{$name}-active: #{color.adjust($color, $lightness: $active-step)};
-    --color-#{$name}-disabled: #{color.grayscale($color)};
+    --color-#{$name}-disabled: #{color.adjust(color.grayscale($color), $lightness: 25%)};
 }
 
 :root {
@@ -12,9 +12,18 @@
   --font-family-default: Roboto, sans-serif;
   --font-weight-default: 400;
   --font-size-default: 16px;
+  --font-size-s: 12px;
+  --font-size-m: 16px;
+  --font-size-l: 20px;
+
+
+  --font-family: Roboto, sans-serif;
+  --font-weight: 400;
 
   --font-family-heading: Roboto, sans-serif;
-  --font-weight-heading: 700;
+  --font-weight-heading: 600;
+
+
 
   /* geometry */
 
@@ -28,11 +37,16 @@
   @include create-color-set('grey', lightgrey);
   //@include create-color-set('primary', whitesmoke);
   @include create-color-set('accent', #1e7fcb);
+  @include create-color-set('accent-light', #89b5d7);
   //@include create-color-set('accent-secondary', #b1ddff);
   //@include create-color-set('disabled', gray);
 
   /* Borders */
-  --border-radius-default: 18px;
+  --border-radius-default: 8px;
+  --border-width:1.5px;
+
+  --focus-width: 1.5px;
+  --focus-offset: 2px;
 
 
 

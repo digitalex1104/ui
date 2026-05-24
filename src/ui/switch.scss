@@ -77,7 +77,7 @@
     &--medium > input:checked + &--slider:before {
         transform: translateX(calc(var(--height-m) * 0.875));    
     }
-     &--large > input:checked + &--slider:before {
+    &--large > input:checked + &--slider:before {
         transform: translateX(calc(var(--height-l) * 0.875));    
     }
     
@@ -86,18 +86,27 @@
         white-space: nowrap;
         font-family: var(--font-family-default);
         font-weight: var(--font-weight-default);
-        font-size: var(--font-size-default);
+        //font-size: var(--font-size-default);
+    }
+    &--small > &--label {
+       font-size: var(--font-size-s);   
+    }
+    &--medium > &--label {
+       font-size: var(--font-size-m);   
+    }
+    &--large > &--label {
+       font-size: var(--font-size-l);   
     }
     
     /* background for inactive */
     input + .dx-ui-switch--slider {  
-        background-color: var(--color-grey-default);
+        background-color: var(--color-accent-light-default);
     }
     input:hover + .dx-ui-switch--slider {  
-        background-color: var(--color-grey-hover);
+        background-color: var(--color-accent-light-hover);
     }
     input:active + .dx-ui-switch--slider {  
-        background-color: var(--color-grey-active);
+        background-color: var(--color-accent-light-active);
     }
 
     /* background for active */
@@ -113,7 +122,7 @@
 
     /* background for disabled */
     input:disabled + .dx-ui-switch--slider{
-        background-color: var(--color-grey-disabled);
+        background-color: var(--color-accent-light-disabled);
     }
     input:checked:disabled + .dx-ui-switch--slider{
         background-color: var(--color-accent-disabled);
@@ -121,10 +130,10 @@
 
     /* focus */
     input:focus + .dx-ui-switch--slider {  
-        outline-width: 2px;
+        outline-width: var(--focus-width);
         outline-style: solid;
         outline-color: var(--color-accent-default, #1e7fcb);
-        outline-offset: 2px;
+        outline-offset: var(--focus-offset);
     }
 
     /* disabled */

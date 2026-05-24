@@ -11,23 +11,34 @@
   /* Typography */
   --font-family-default: Roboto, sans-serif;
   --font-weight-default: 400;
-  --font-size-default: 20px;
+  --font-size-default: 16px;
 
   --font-family-heading: Roboto, sans-serif;
   --font-weight-heading: 700;
 
+  /* geometry */
 
+  --height-s: 16px;
+  --height-m: 24px;
+  --height-l: 32px;
 
 
   /* Colors */
   @include create-color-set('default', white);
+  @include create-color-set('grey', lightgrey);
   //@include create-color-set('primary', whitesmoke);
   @include create-color-set('accent', #1e7fcb);
   //@include create-color-set('accent-secondary', #b1ddff);
   //@include create-color-set('disabled', gray);
 
-  /* Styles */
-  --border-radius-default: 6px;
+  /* Borders */
+  --border-radius-default: 18px;
+
+
+
+  /* Animations */
+  --transition-duration-default: 0.3s;
+  --transition-duration-color: 0.1s;
 
 
 

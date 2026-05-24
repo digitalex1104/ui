@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { useState } from 'react';
 
 import { Switch } from 'ui';
 
@@ -28,9 +29,9 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {};
 
-export const Secondary: Story = {
+export const Active: Story = {
   args: {
-    secondary: true,
+    checked: true,
   },
 };
 
@@ -40,18 +41,51 @@ export const Small: Story = {
   },
 };
 
-export const Disabled: Story = {
+export const Medium: Story = {
   args: {
-    disabled: true,
-    onClick: () => alert('Button clicked'),
+    size: 'medium',
   },
 };
 
-export const DisabledSecondary: Story = {
+export const Large: Story = {
+  args: {
+    size: 'large',
+  },
+};
+
+export const Disabled: Story = {
   args: {
     disabled: true,
-    secondary: true,  
-    onClick: () => alert('Button clicked'),
+  },
+};
+
+export const DisabledActive: Story = {
+  args: {
+    disabled: true,
+    checked: true,  
+  },
+};
+
+export const Controlled: Story = {
+  args: {
+    checked: false,
+    children: 'Label',
+  },
+  render: function Render(args) {
+    const [checked, setChecked] = useState(args.checked ?? false);
+
+    return (
+      <div style={{ display: 'grid', gap: '0.75rem' }}>
+        <Switch
+          {...args}
+          checked={checked}
+          onChange={(event) => setChecked(event.currentTarget.checked)}
+        />
+        <div>
+          {checked ? 'checked' : 'not checked'}
+         </div>
+      </div>
+    );
   },
 };
 

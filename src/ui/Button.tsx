@@ -1,13 +1,13 @@
 import './button.scss';
-import type { ButtonHTMLAttributes } from 'react';
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Is this the principal call to action on the page? */
+  /** Layout of the element */
   secondary?: boolean;
-  /** How large should the button be? */
+  /** Size of the element */
   size?: 'large' | 'small' ;
-  /** Button contents */
-  //children: ReactNode | string | undefined;
+  /** Label contents */
+  children?: ReactNode | string | undefined;
 }
 
 /** Primary UI component for user interaction */

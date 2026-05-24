@@ -1,20 +1,21 @@
 import './switch.scss';
-import type { InputHTMLAttributes } from 'react';
+import type { InputHTMLAttributes, ReactNode } from 'react';
 
 export interface SwitchProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> {
-  /** Is this the principal call to action on the page? */
+  /** Layout of the element */
   secondary?: boolean;
-  /** How large should the button be? */
-  size?: 'large' | 'small';
-  /** Button contents */
-  children?: string;
+  /** Size of the element */
+  size?: 'small' | 'medium' | 'large';
+  /** Label content */
+  children?: ReactNode | string | undefined;
 }
 
 /** Primary UI component for user interaction */
 export const Switch = ({
   secondary = false,
-  size = 'large',
-  children = 'Button',
+  size = 'medium',
+  children = 'Label',
+  //disabled = false,
   className,
   ...props
 }: SwitchProps) => {
@@ -22,8 +23,8 @@ export const Switch = ({
   return (
     <label className={['dx-ui-switch', `dx-ui-switch--${size}`, mode, className].filter(Boolean).join(' ')}>
         <input type="checkbox" {...props} />
-        <span className="dx-ui-switch-slider"></span>
-        <span className="dx-ui-switch-label">{children}</span>
+        <span className="dx-ui-switch--slider"></span>
+        <span className="dx-ui-switch--label">{children}</span>
     </label>
   );
 };

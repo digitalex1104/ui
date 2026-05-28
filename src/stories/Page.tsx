@@ -2,6 +2,7 @@ import React from 'react';
 
 
 import './page.scss';
+import { Button, Switch } from 'ui';
 
 /*
 type User = {
@@ -11,9 +12,23 @@ type User = {
 
 export const Page: React.FC = () => {
   //const [user, setUser] = React.useState<User>();
-
+  const [buttonDisabled, setButtonDisabled] = React.useState<boolean>(false)
   return (
     <article>
+      <section>
+        <div style={{display: "flex", gap:"8px", border: "1px red dashed", margin: "10px"}}>
+          <Switch checked={buttonDisabled} onChange={setButtonDisabled}>disable Button</Switch>
+          <Button disabled={buttonDisabled}></Button>
+          
+        </div>
+        <div style={{display: "flex", flexDirection:"column", gap:"8px", border: "1px red dashed", margin: "10px"}}>
+          <Switch checked={buttonDisabled} onChange={setButtonDisabled}>disable Button</Switch>
+          <Button disabled={buttonDisabled}></Button>
+          
+        </div>
+       
+        
+      </section>
      
 
       <section className="storybook-page">

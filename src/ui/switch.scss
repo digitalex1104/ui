@@ -1,14 +1,10 @@
 @use './scss/color-set' as *;
-//$switch-width: calc(var(--height-l) + var(--height-l));
-//$switch-spacing: 4px;
 
 .dx-ui-switch{
     position: relative;
-    display: inline-flex;
-    align-items: center;
     gap: 10px;
-    width: fit-content;
-    //min-height: 34px;
+    display: inline-flex;
+    vertical-align: top;
 
     /* original input element (hidden) */
     input {
@@ -21,115 +17,119 @@
     }
 
     /* pane */
-    &--slider {
-        position: relative;
+    &__slider {
         cursor: pointer;
         transition: background-color var(--transition-duration-color);
-        border-radius: var(--border-radius-default)
+        border-radius: var(--border-radius-default);
+        font-size: 0;
+        line-height: 0;
     }
-    &--small > &--slider {
-        height: var(--height-s);
+    &--small > &__slider {
+        height: var(--height-s);  
         width: calc(var(--height-s) * 1.875);
-        flex: 0 0 calc(var(--height-s) * 1.875);
+        //flex: 0 0 calc(var(--height-s) * 1.875);
     }
-    &--medium > &--slider {
+    &--medium > &__slider {
+       
         height: var(--height-m);
         width: calc(var(--height-m) * 1.875);
-        flex: 0 0 calc(var(--height-m) * 1.875);
+        //flex: 0 0 calc(var(--height-m) * 1.875);
     }
-    &--large > &--slider {
+    &--large > &__slider {
         height: var(--height-l);
         width: calc(var(--height-l) * 1.875);
-        flex: 0 0 calc(var(--height-l) * 1.875);
+        //flex: 0 0 calc(var(--height-l) * 1.875);
     }
 
     /* grip */
-    &--slider:before {
+    &__slider:before {
         position: absolute;
         content: "";
         background-color: white;
         transition: transform var(--transition-duration-default);
     }
-    &--small > &--slider:before {
+    &--small > &__slider:before {
         height: calc(var(--height-s) * 0.75);
         width: calc(var(--height-s) * 0.75);
         left: calc(var(--height-s) * 0.125); 
         bottom: calc(var(--height-s) * 0.125);
         border-radius: calc(var(--border-radius-default) - calc(var(--height-s) * 0.125));
     }
-    &--medium > &--slider:before {
+    &--medium > &__slider:before {
         height: calc(var(--height-m) * 0.75);
         width: calc(var(--height-m) * 0.75);
         left: calc(var(--height-m) * 0.125); 
         bottom: calc(var(--height-m) * 0.125);
         border-radius: calc(var(--border-radius-default) - calc(var(--height-m) * 0.125));
     }
-    &--large > &--slider:before {
+    &--large > &__slider:before {
         height: calc(var(--height-l) * 0.75);
         width: calc(var(--height-l) * 0.75);
         left: calc(var(--height-l) * 0.125); 
         bottom: calc(var(--height-l) * 0.125);
         border-radius: calc(var(--border-radius-default) - calc(var(--height-l) * 0.125));
     }
-    &--small > input:checked + &--slider:before {
+    &--small > input:checked + &__slider:before {
         transform: translateX(calc(var(--height-s) * 0.875));    
     }
-    &--medium > input:checked + &--slider:before {
+    &--medium > input:checked + &__slider:before {
         transform: translateX(calc(var(--height-m) * 0.875));    
     }
-    &--large > input:checked + &--slider:before {
+    &--large > input:checked + &__slider:before {
         transform: translateX(calc(var(--height-l) * 0.875));    
     }
     
     /* label */
-    &--label {
+    &__label {
         white-space: nowrap;
         font-family: var(--font-family-default);
         font-weight: var(--font-weight-default);
-        //font-size: var(--font-size-default);
     }
-    &--small > &--label {
+    &--small > &__label {
        font-size: var(--font-size-s);   
+       line-height: var(--height-s);
     }
-    &--medium > &--label {
+    &--medium > &__label {
        font-size: var(--font-size-m);   
+       line-height: var(--height-m);
     }
-    &--large > &--label {
+    &--large > &__label {
        font-size: var(--font-size-l);   
+        line-height: var(--height-l);
     }
     
     /* background for inactive */
-    input + .dx-ui-switch--slider {  
+    input + .dx-ui-switch__slider {  
         background-color: var(--color-accent-light-default);
     }
-    input:hover + .dx-ui-switch--slider {  
+    input:hover + .dx-ui-switch__slider {  
         background-color: var(--color-accent-light-hover);
     }
-    input:active + .dx-ui-switch--slider {  
+    input:active + .dx-ui-switch__slider {  
         background-color: var(--color-accent-light-active);
     }
 
     /* background for active */
-    input:checked + .dx-ui-switch--slider {  
+    input:checked + .dx-ui-switch__slider {  
         background-color: var(--color-accent-default);
     }
-    input:checked:hover + .dx-ui-switch--slider {  
+    input:checked:hover + .dx-ui-switch__slider {  
         background-color: var(--color-accent-hover);
     }
-    input:checked:active + .dx-ui-switch--slider {  
+    input:checked:active + .dx-ui-switch__slider {  
         background-color: var(--color-accent-active);
     }
 
     /* background for disabled */
-    input:disabled + .dx-ui-switch--slider{
+    input:disabled + .dx-ui-switch__slider{
         background-color: var(--color-accent-light-disabled);
     }
-    input:checked:disabled + .dx-ui-switch--slider{
+    input:checked:disabled + .dx-ui-switch__slider{
         background-color: var(--color-accent-disabled);
     }
 
     /* focus */
-    input:focus + .dx-ui-switch--slider {  
+    input:focus + .dx-ui-switch__slider {  
         outline-width: var(--focus-width);
         outline-style: solid;
         outline-color: var(--color-accent-default, #1e7fcb);

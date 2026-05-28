@@ -1,30 +1,48 @@
 import './switch.scss';
-import type { InputHTMLAttributes, ReactNode } from 'react';
+import React from 'react';
+import type { ReactNode } from 'react';
 
-export interface SwitchProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> {
-  /** Layout of the element */
-  secondary?: boolean;
+export interface SwitchProps {
   /** Size of the element */
   size?: 'small' | 'medium' | 'large';
   /** Label content */
   children?: ReactNode | string | undefined;
+  /** Funtion triggered when checked state changes. Has new checked state as argument */
+  onChange?: (checked: boolean) => void;
+  /** sets checked state */
+  checked?: boolean | undefined;
+  /** Disables interaction with element and grays it out */
+  disabled?: boolean;
+  /** Additional classes for the element */
+  className?: string;
 }
 
 /** Primary UI component for user interaction */
 export const Switch = ({
-  secondary = false,
   size = 'medium',
   children = 'Label',
-  //disabled = false,
+  disabled = false,
+  onChange = () => {},
+  checked,
   className,
-  ...props
+  //...props
 }: SwitchProps) => {
-  const mode = secondary ? 'dx-ui-switch--secondary' : 'dx-ui-switch--primary';
+  const [internalChecked, setInternalChecked] = React.useState<boolean | undefined>(checked);
+  const isControlled = checked !== undefined;
+  const isChecked = isControlled ? checked : internalChecked;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const nextChecked = e.target.checked;
+    if (!isControlled) {
+      setInternalChecked(nextChecked);
+    }
+    onChange(nextChecked);
+  };
+
   return (
-    <label className={['dx-ui-switch', `dx-ui-switch--${size}`, mode, className].filter(Boolean).join(' ')}>
-        <input type="checkbox" {...props} />
-        <span className="dx-ui-switch--slider"></span>
-        <span className="dx-ui-switch--label">{children}</span>
-    </label>
+    <div className={['dx-ui-switch', `dx-ui-switch--${size}`, className].filter(Boolean).join(' ')}>
+        <input type="checkbox" checked={isChecked} disabled={disabled} onChange={handleChange}/>
+        <div className="dx-ui-switch__slider"></div>
+        <div className="dx-ui-switch__label">{children}</div>
+    </div>
   );
 };

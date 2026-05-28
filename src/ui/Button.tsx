@@ -2,8 +2,7 @@ import './button.scss';
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Layout of the element */
-  //secondary?: boolean;
+  /** Layout variant of the element */
   variant?: 'primary' | 'secondary' | 'tertiary';
   /** Size of the element */
   size?: 'small' | 'medium' | 'large' ;

@@ -8,7 +8,7 @@ export interface SwitchProps {
   /** Label content */
   children?: ReactNode | string | undefined;
   /** Funtion triggered when checked state changes. Has new checked state as argument */
-  onChange?: (checked: boolean) => void;
+  onChekcedChange?: (checked: boolean) => void;
   /** sets checked state */
   checked?: boolean | undefined;
   /** Disables interaction with element and grays it out */
@@ -22,7 +22,7 @@ export const Switch = ({
   size = 'medium',
   children = 'Label',
   disabled = false,
-  onChange = () => {},
+  onChekcedChange = () => {},
   checked,
   className,
   //...props
@@ -35,7 +35,7 @@ export const Switch = ({
     if (!isControlled) {
       setInternalChecked(nextChecked);
     }
-    onChange(nextChecked);
+    onChekcedChange(nextChecked);
   };
 
   return (

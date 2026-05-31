@@ -14,7 +14,7 @@
   --font-size-default: 16px;
   --font-size-s: 12px;
   --font-size-m: 16px;
-  --font-size-l: 20px;
+  --font-size-l: 16px;
 
 
   --font-family: Roboto, sans-serif;
@@ -31,6 +31,12 @@
   --height-m: 24px;
   --height-l: 32px;
 
+  /* spacings */
+
+  --spacing-s: 16px;
+  --spacing-m: 24px;
+  --spacing-l: 32px;  
+
 
   /* Colors */
   @include create-color-set('default', white);
@@ -42,11 +48,16 @@
   //@include create-color-set('disabled', gray);
 
   /* Borders */
-  --border-radius-default: 20px;
+  --border-radius-default: 100px;
+  --border-radius-popover: 24px ;
   --border-width:1.5px;
 
   --focus-width: 1.5px;
   --focus-offset: 2px;
+
+  /* Shadows */
+
+  --shadow-popover: 0px 8px 12px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.1);
 
 
 

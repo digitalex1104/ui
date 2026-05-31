@@ -1,0 +1,43 @@
+@use './scss/color-set' as *;
+
+.dx-ui-popover {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity var(--transition-duration-default);
+  //z-index: var(--z-index-popover);
+  background-color: color-mix(in srgb, var(--color-default-default) 25%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  //border: var(--border-width) solid var(--color-default-dark);
+  //border-radius: var(--border-radius-default);
+  //padding: var(--spacing-m);
+  //box-shadow: var(--shadow-elevation-2);
+
+  &--open {
+    opacity: 1;
+  }
+
+  &--closing {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  
+  &__panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-s);
+    background-color: var(--color-default-default);
+    box-shadow: var(--shadow-popover);
+    border-radius: var(--border-radius-popover);
+    padding: var(--spacing-m);
+  }
+}    

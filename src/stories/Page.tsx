@@ -3,6 +3,7 @@ import React from 'react';
 
 import './page.scss';
 import { Button, Switch } from 'ui';
+import { Popover } from '../ui/Popover';
 
 /*
 type User = {
@@ -11,21 +12,34 @@ type User = {
 */
 
 export const Page: React.FC = () => {
-  //const [user, setUser] = React.useState<User>();
+  const [popoverOpen, setPopoverOpen] = React.useState<boolean>(false);
   const [buttonDisabled, setButtonDisabled] = React.useState<boolean>(false)
   return (
     <article>
       <section>
+         <div style={{display: "flex", gap:"8px", border: "1px red dashed", margin: "10px"}}>
+          <Switch size="small" checked={buttonDisabled} onChekcedChange={setButtonDisabled}>disable Button</Switch>
+          <Button size="small" disabled={buttonDisabled}></Button>
+        </div>
         <div style={{display: "flex", gap:"8px", border: "1px red dashed", margin: "10px"}}>
-          <Switch checked={buttonDisabled} onChange={setButtonDisabled}>disable Button</Switch>
-          <Button disabled={buttonDisabled}></Button>
-          
+          <Switch size="medium" checked={buttonDisabled} onChekcedChange={setButtonDisabled}>disable Button</Switch>
+          <Button size="medium" disabled={buttonDisabled}></Button>
         </div>
+         <div style={{display: "flex", gap:"8px", border: "1px red dashed", margin: "10px"}}>
+          <Switch size="large" checked={buttonDisabled} onChekcedChange={setButtonDisabled}>disable Button</Switch>
+          <Button size="large" disabled={buttonDisabled}></Button>
+        </div>
+        
         <div style={{display: "flex", flexDirection:"column", gap:"8px", border: "1px red dashed", margin: "10px"}}>
-          <Switch checked={buttonDisabled} onChange={setButtonDisabled}>disable Button</Switch>
-          <Button disabled={buttonDisabled}></Button>
-          
+          <Switch checked={buttonDisabled} onChekcedChange={setButtonDisabled}>disable Button</Switch>
+          <Button disabled={buttonDisabled} onClick={() => setPopoverOpen(true)}>open Popover</Button>
         </div>
+
+        <Popover variant="primary" size="medium" open={popoverOpen} onOpenChange={setPopoverOpen}>
+          <p>This is a popover content.</p>
+          <p>You can put any content here, such as text, images, or other components.</p>
+          <Button onClick={() => setPopoverOpen(false)}>Close Popover</Button>
+        </Popover>
        
         
       </section>

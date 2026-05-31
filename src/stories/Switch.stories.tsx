@@ -100,7 +100,7 @@ export const Controlled: Story = {
         <Switch
           {...args}
           checked={checked}
-          onChange={setChecked}
+          onChekcedChange={setChecked}
         />
         <div>
           {checked ? 'checked' : 'not checked'}

@@ -13,7 +13,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 /** Primary UI component for user interaction */
 export const Button = ({
   variant = 'primary',
-  size = 'medium',
+  size = 'large',
   children = 'Button',
   className,
   ...props
